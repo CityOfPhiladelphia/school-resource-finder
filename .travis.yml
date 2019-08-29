@@ -11,9 +11,8 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     bucket: 'phila-resource-finder'
-    upload-dir: 'immigrant/prod'
+    upload-dir: 'schools/prod'
     on:
       branch: master
     local_dir: dist
     skip_cleanup: true
-  
