@@ -9,11 +9,17 @@
 import pinboard from '@philly/pinboard/src/main.js';
 
 // data-sources
-import immigrant from './data-sources/immigrant';
+import immigrant from './data-sources/charter-schools';
+// import immigrant from './data-sources/immigrant';
 var BASE_CONFIG_URL = 'https://cdn.jsdelivr.net/gh/cityofphiladelphia/mapboard-default-base-config@6126861722cee9384694742363d1661e771493b9/config.js';
 
 pinboard({
   // baseConfig: null,
+  locationSlots: {
+    title: function(state, item) {
+      return item.attributes.agencyname;
+    },
+  },
   baseConfig: BASE_CONFIG_URL,
   cyclomedia: {
     enabled: false,
@@ -26,6 +32,7 @@ pinboard({
   },
   dataSources: {
     immigrant,
+    // charterSchools,
   },
   router: {
     enabled: false,
