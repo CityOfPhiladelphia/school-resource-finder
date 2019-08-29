@@ -15,8 +15,10 @@ var BASE_CONFIG_URL = 'https://cdn.jsdelivr.net/gh/cityofphiladelphia/mapboard-d
 
 pinboard({
   // baseConfig: null,
-  itemParameters: {
-    title: [ 'attributes', 'agencyname' ],
+  locationSlots: {
+    title: function(state, item) {
+      return item.attributes.agencyname;
+    },
   },
   baseConfig: BASE_CONFIG_URL,
   cyclomedia: {
