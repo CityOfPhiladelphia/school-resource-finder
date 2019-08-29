@@ -9,15 +9,15 @@
 import pinboard from '@philly/pinboard/src/main.js';
 
 // data-sources
-import immigrant from './data-sources/schools';
-// import immigrant from './data-sources/immigrant';
+import schools from './data-sources/schools';
 var BASE_CONFIG_URL = 'https://cdn.jsdelivr.net/gh/cityofphiladelphia/mapboard-default-base-config@6126861722cee9384694742363d1661e771493b9/config.js';
 
 pinboard({
   // baseConfig: null,
   locationSlots: {
     title: function(state, item) {
-      return item.attributes.agencyname;
+      return item.attributes.agencyname + ' ' + item.attributes.school;
+      // return item.attributes.agencyname;
     },
   },
   baseConfig: BASE_CONFIG_URL,
@@ -31,8 +31,7 @@ pinboard({
     apiKey: process.env.VUE_APP_CYCLOMEDIA_API_KEY,
   },
   dataSources: {
-    immigrant,
-    // charterSchools,
+    schools,
   },
   router: {
     enabled: false,
@@ -41,6 +40,7 @@ pinboard({
     title: 'School resource finder',
     tagLine: 'Find resources about schools in the City',
     logoAlt: 'Office of School Affairs, City of Philadelphia',
+    type: 'schools',
   },
   geocoder: {
     url(input) {
